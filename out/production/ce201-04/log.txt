@@ -1,0 +1,192 @@
+13/12/2017 (Hamza Butt)
+
+  Added a basic GUI, currently has 3 screens.
+  All files are commented and explanations have been given.
+
+  * Uses a CardPanel layout; series of JPanels
+  * Allows easy further implementation of panels.
+  * Created a basic menu; a hub where the user can select where they wish to go.
+
+  19/01/2018 (Gong Jiaji, CSV Parser )
+
+  * Csv parser requires external library ( JavaCSV ), download at https://sourceforge.net/projects/javacsv/
+  * API DOC : http://javacsv.sourceforge.net/
+  * added file: gridwatch.csv for testing
+  * added function csv parser under ButtonHandler (action 3)
+    you have 2 ways to select data:
+      1. use csv reader object and apply methods in the library
+      2. copy all contents to array list and apply methods in STL
+    Both are useful in certain circumstance, I left 2 examples for your reference. Please see comments for details
+
+
+  25/01/2018 (Gong Jiaji, File Chooser )
+
+  * File Chooser implemented. Now user could press "select file" button to browse then select file. Press "Read file" to
+  process the file. (ButtonHandler -- action 4)
+  * a filter to reject non csv / excel files
+  * by far the program working well on my machine
+  * I didn't change the previous design on file selection frame, so please amend the GUI
+
+
+  01/02/2018 (Gong Jiaji, File selection refine)
+  * refined file selection frame, removed TextFiled, replaced it with a JLabel which indicating file path that user selected.
+  * a clear button added, user could clear selection in case of mis-clicking.
+
+
+  10/02/2018 (Gong Jiaji, File selection refine)
+  * Now user can't enter main frame if file name is empty.
+  * integrate Csv parser in class, you can now create methods in <Csv.class> and apply methods under <ButtonHandler.class> to get data.
+    e.g. csv.getRows(10) to get first 10 rows.
+  * PLEASE NOTE, i'v deactivated the code at line 859 in SearchForData.class for testing purpose.
+
+  11/02/2018 (Matei Rusu, searchForData)
+  *all the fields for search are done
+  *the user can't input a value for search that is incorrect
+
+  13/02/2018 (Hamza Butt; DataSnippet, DateFormmater)
+
+  * Date selection interface requires external libraries - jdatepicker-1.3.2
+    https://sourceforge.net/projects/jdatepicker/files/Releases/1.3.x/
+  * Created a custom date formatter (DateFormatter) can be applied in combination with
+    a standard UtilDateModel object to produce the desired result (see module/GUI output for details).
+  * Custom abstract formatter can be reused and applied elsewhere in the program too.
+
+  13/02/2018 (Matei Rusu, searchForData)
+  *searching after timestamp,id,demand and frequency
+  *no visual output
+  *all the records that meet the criteria for those fields are saved in an 2D array
+  *the print of the array if fo test purposes feel free comment that
+
+  15/02/2018 (Hamza Butt; DataSnippet, PostDataSnippet)
+
+  * Data snippet function fully implemented; only minor validation (mostly validated) remaining.
+  * Data is all extracted from CSV and stored in an arraylist; processed and the final result is a new ArrayList containing
+    the snippet
+  * User inputs a date selection, on button click and JTable is generated dynamically in a dialogue; user can then proceed
+    by button click and this implicitly closes the dialogue.
+  * All data is still stored and can be accesssed statically through the reference -> PostDataSnippet.snippedData
+
+  15/02/2018 (Matei Rusu, searchForData)
+  *search function is ready
+  *I need to change the data structure from an 2D array to an array list
+
+
+  15/02/2018 (Hamza Butt, DataSnippet)
+
+  * Removed hanging commas from JTable display.
+  * Restricted max snippet length to 7 days
+  * Restricted snippet ranges to those only available in file (limited by earliest/latest date in csv file).
+  * Removed unnecessary import statements.
+
+  15/02/2018 (Kai Roper-Blackman, LineChart)
+  *JFreeChart download link https://sourceforge.net/projects/jfreechart/files/1.%20JFreeChart/1.0.1/jfreechart-1.0.1.zip/download?use_mirror=kent&download=
+  *Must import JFreechart and JCommon
+  *Need to change data input type
+  *Need to change from jpeg generator to AWT window or allow program to display jpeg after generation
+
+  22/02/2018 (Hamza Butt, Minor changes)
+
+  * Fixed issue with Java heap space - user clicking back and forth results in an out of memory exception
+  * Changed structure so heap space is cleared at the relavant times.
+  * Added new action in button handler (5) to fix/simplify this.
+
+
+  21/02/2018 (Kai Roper-Blackman, LineChart, scatterGraph)
+  *data input type changed
+  *now creates new window to display chart in as well as jpeg image
+  *extra comments added
+  *scatterGraph work in progress. Needs to
+
+
+  26/02/2018 (Ionel-Florin Vasile, Export)
+  *IText library (itext5-itextpdf-5.5.11) https://sourceforge.net/projects/itext/files/5.5.11/itext5-5.5.11.zip/download
+  *Data can be exported to PDF
+  *Extracting all data from search and snippet
+
+
+  28/02/2018 (Rusu Matei Stefan, SearchForData, Recent Search)
+  *SearchForData class now includes the export in pdf
+  * small modifications on SearchForData class
+  *RecentSearch class stores and displays the most recent searches from the SearchForData class
+
+  01/03/2018 (Rusu Matei Stefan, SearchForData, Recent Search)
+  *SearchForData and RecentSearch classes are ready to be used
+
+  01/03/2018 (Hamza Butt; DataSnippet History change)
+  *validation for data snippet history fixed
+
+  01/03/2018 (Kai Roper-Blackman, LineChart, ButtonHandler)
+  *Changed line chart to JDialog
+  *Created action 20 to instantiate LineGraph
+  *Button handler now disposes all unnesacery windows
+
+  01/03/2018 (Rusu Matei Stefan, Recent Search)
+  *added clear history button on RecentSearch class
+
+  22/02/2018(Tinuade Ologbenla Graph method)
+  *links the dataSnippet class to a panel for ploting graphs
+  *bar, line and histogram buttons with a return to main menu added
+
+  28/02/2018(Tinuade Ologbenla)
+  *bar graph made but many axis
+  *
+
+  01/03/2018(Tinuade Ologbenla)
+  *Bar graph committed
+  *jpeg added
+  *will comment code tonight
+
+  01/03/2018 (Hamza Butt; Structural edits)
+
+  * Cleaned up the main menu; removed unnecessary buttons.
+  * Organised search history panel
+  * Extended night mode to support every current element in the program.
+
+  02/03/2018 (Hamza Butt)
+
+  * Just added the jars to the project directory/subversion
+
+  03/03/2018 (Rusu Matei Stefan,Prediction)
+  *added the Data prediction
+
+  05/03/2018 (Kai Roper-Blackman, LineChart, PostDataSnippet, SearchForData)
+  *Added booleans to search classes so chart classes use most recent search data
+  *created exception for empty dataset if search fails
+  *Added comments
+
+  05/03/2018 (Hamza Butt)
+
+  *Added a new night mode button
+  *Organised layout more
+  *Modulised jdialogs - only one can be open at a time
+
+  06/03/2018 (Hamza Butt)
+
+  * Added more validation when switching between screens - clearing of fields.
+  * Validated history - can't open history dialog when the list/dialog is empty
+  * Will add more validation tonight
+
+  06/03/2018 (Kai Roper-Blackman, PieChart, Button Handler,Graphs)
+  *Created PieChart class
+  *Added action to buttonHandler
+  *Added JButtons to Graphs
+  *fixed bug that shows negative values as their positive equivalent
+
+  06/03/2018 (Hamza Butt)
+  *fully validated history section.
+  *partially validated prediction for empty input - needs work
+  *removed bugs
+
+  07/03/2018 (Ionel-Florin Vasile)
+  *all the export is fixed and fully working
+  *renamed the exported files
+
+  07/03/2018 (Kai Roper-Blackman, LineChart, PieChart)
+  *Minor bug fixes to line chart and pie chart
+
+  08/03/2018(Rusu Matei Stefan, SearchForData)
+  *minor data input validation fixed
+  *final working version that we have
+
+  08/03/2018(Rusu Matei Stefan)
+    *last version of the program
