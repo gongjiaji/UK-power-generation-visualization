@@ -1,15 +1,15 @@
 # UK-weather-visualization
 A group project in univeristy
 
-![](welcom.png)
+![](welcome.PNG)
 
-![](file.png)
+![](file.PNG)
 
-![](barGraph.png)
+![](barGraph.PNG)
 
-![](pieChart.png)
+![](pieChart.PNG)
 
-![](predictionFinal.png)
+![](predictionFinal.PNG)
 
-![](search.png)
+![](search.PNG)
 
