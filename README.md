@@ -1,4 +1,4 @@
-# UK-weather-visualization
+# UK-power-generation-visualization
 
 A group project in univeristy.
 
